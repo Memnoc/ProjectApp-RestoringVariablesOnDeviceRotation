@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // method 2 restoring
+//        if(savedInstanceState != null) {
+//            mCount = savedInstanceState.getInt("count");
+//            mTextViewCount.setText(String.valueOf(mCount));
+//        }
+
     }
 
     private void decrement() {
@@ -47,4 +53,24 @@ public class MainActivity extends AppCompatActivity {
         mTextViewCount.setText(String.valueOf(mCount));
     }
 
+    /**
+     * Saving the members' state
+     * @param outState passing the values to get saved to the bundle
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("count", mCount);
+    }
+
+    /**
+     * Method 1 - no check for null values needed
+     * @param savedInstanceState parameter that retrieves the value passed to onSaveInstanceState()
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mCount = savedInstanceState.getInt("count");
+        mTextViewCount.setText(String.valueOf(mCount));
+    }
 }
