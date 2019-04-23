@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RestoringVariablesRotatation</string>
+    <string name="plus_sign">+</string>
+    <string name="minus_sign">-</string>
+    <string name="zero">0</string>
 </resources>
